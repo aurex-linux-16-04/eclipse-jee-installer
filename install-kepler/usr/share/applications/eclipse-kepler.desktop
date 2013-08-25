@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Eclipse Kepler
+Type=Application
+Exec=eclipse-kepler
+Terminal=false
+Icon=eclipse
+Comment=Eclipse IDE for Java EE Developers
+NoDisplay=false
+Categories=Application;Development;Java;IDE

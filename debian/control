@@ -8,7 +8,7 @@ Standards-Version: 3.8.4
 Package: eclipse-jee-installer
 Architecture: all
 Depends: ${misc:Depends}, eclipse-juno-sr2
-Description: generic netbeans metapackage
+Description: generic eclipse JEE metapackage
  This package will always depend on the aurex recommended version of
  the eclipse JEE
 
