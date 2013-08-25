@@ -1,0 +1,5 @@
+#!/bin/sh
+
+eclipse-juno-sr2  install
+#DEBHELPER#
+

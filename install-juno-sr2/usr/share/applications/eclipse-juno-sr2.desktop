@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Eclipse Juno SR2 JEE
+Type=Application
+Exec=eclipse-juno-sr2
+Terminal=false
+Icon=eclipse
+Comment=Eclipse IDE for Java EE Developers
+NoDisplay=false
+Categories=Application;Development;Java;IDE
