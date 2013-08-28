@@ -1,7 +1,7 @@
 #!/bin/sh
 # -------
-# File:        eclipse-installer
-# Description: Download and install netbeans IDE
+# File:        eclipse-cdt-kepler
+# Description: Download and extracts archived p2 repo of eclpise CDT for future use
 # Author:      Luis Antonio Garcia Gisbert <luisgg@gmail.com> 
 # 
 # This program is free software; you can redistribute it and/or modify
@@ -26,17 +26,8 @@ usage(){
 
 [ "$1" ] || usage
 
-LINK_NAME="eclipse-kepler"
-DEST_DIR="/opt/eclipse-kepler"
-
-case "$(dpkg --print-architecture)" in
-	amd64)
-		REQ_URL="http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/kepler/R/eclipse-jee-kepler-R-linux-gtk-x86_64.tar.gz"
-		;;
-	*)
-		REQ_URL="http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/kepler/R/eclipse-jee-kepler-R-linux-gtk.tar.gz"
-		;;
-esac
+DEST_DIR="/opt/eclipse-kepler/cdt"
+REQ_URL="http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/tools/cdt/releases/kepler/r/cdt-master-8.2.0.zip"
 
 case "$1" in
 	install)
@@ -45,14 +36,12 @@ case "$1" in
 			if [ "$EXEC_FILE" ] && [ -r "$EXEC_FILE" ] ; then
 				echo "Extracting files"
 				mkdir -p "$DEST_DIR"
-				tar -C "$DEST_DIR" -xzf "$EXEC_FILE"
-				ln -sf "$DEST_DIR/eclipse/eclipse" "/usr/bin/$LINK_NAME"
+				unzip -o -d "$DEST_DIR"  "$EXEC_FILE"
 			fi
 		fi
 		;;
 	uninstall)
 		rm -fr "$DEST_DIR"
-		rm -f "/usr/bin/$LINK_NAME"
 
 		;;
 	*)

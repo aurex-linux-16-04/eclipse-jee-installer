@@ -1,7 +1,7 @@
 #!/bin/sh
 # -------
-# File:        eclipse-cdt-kepler
-# Description: Download and extracts archived p2 repo of eclpise CDT for future use
+# File:        eclipse-kepler
+# Description: simple launcher for eclipse
 # Author:      Luis Antonio Garcia Gisbert <luisgg@gmail.com> 
 # 
 # This program is free software; you can redistribute it and/or modify
@@ -19,34 +19,10 @@
 # 51 Franklin St, Fifth Floor, Boston MA 02110-1301 USA
 # --------
 
-usage(){
-	echo "$(basename "$0") {install|uninstall}" >&2
-	exit 1
-}
-
-[ "$1" ] || usage
-
-DEST_DIR="/opt/eclipse-juno-sr2/cdt"
-REQ_URL="http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/tools/cdt/releases/kepler/r/cdt-master-8.2.0.zip"
-
-case "$1" in
-	install)
-		if aurex-cache get "$REQ_URL" ; then
-			EXEC_FILE="$(aurex-cache file "$REQ_URL")"
-			if [ "$EXEC_FILE" ] && [ -r "$EXEC_FILE" ] ; then
-				echo "Extracting files"
-				mkdir -p "$DEST_DIR"
-				unzip -o -d "$DEST_DIR"  "$EXEC_FILE"
-			fi
-		fi
-		;;
-	uninstall)
-		rm -fr "$DEST_DIR"
-
-		;;
-	*)
-		usage
-		;;
-esac
-
-exit 0
+DEST_DIR="/opt/eclipse-kepler"
+# test if ADT plugin is installed
+ECLIPSE_ADT="$(which eclipse-adt-installer)"
+if [ "$ECLIPSE_ADT" ] && [ -x "$ECLIPSE_ADT" ] ; then
+        $ECLIPSE_ADT user-install "$DEST_DIR" || true
+fi
+exec "$DEST_DIR/eclipse/eclipse" "$@"

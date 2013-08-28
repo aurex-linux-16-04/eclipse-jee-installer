@@ -26,7 +26,6 @@ usage(){
 
 [ "$1" ] || usage
 
-LINK_NAME="eclipse-kepler"
 DEST_DIR="/opt/eclipse-kepler"
 
 case "$(dpkg --print-architecture)" in
@@ -46,14 +45,11 @@ case "$1" in
 				echo "Extracting files"
 				mkdir -p "$DEST_DIR"
 				tar -C "$DEST_DIR" -xzf "$EXEC_FILE"
-				ln -sf "$DEST_DIR/eclipse/eclipse" "/usr/bin/$LINK_NAME"
 			fi
 		fi
 		;;
 	uninstall)
 		rm -fr "$DEST_DIR"
-		rm -f "/usr/bin/$LINK_NAME"
-
 		;;
 	*)
 		usage

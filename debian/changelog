@@ -1,3 +1,9 @@
+eclipse-jee-installer (4.3+0aurex3) precise; urgency=low
+
+  * Added CDT and ADT plugin packages
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Wed, 28 Aug 2013 17:38:39 +0200
+
 eclipse-jee-installer (4.3+0aurex2) precise; urgency=low
 
   * Added kepler package

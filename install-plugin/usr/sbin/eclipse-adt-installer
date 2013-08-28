@@ -1,0 +1,88 @@
+#!/bin/sh
+# -------
+# File:        eclipse-adt-installer
+# Description: Download and install eclpise ADT plugin
+# Author:      Luis Antonio Garcia Gisbert <luisgg@gmail.com> 
+# 
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along 
+# with this program; if not, write to the Free Software Foundation, Inc., 
+# 51 Franklin St, Fifth Floor, Boston MA 02110-1301 USA
+# --------
+
+die(){
+	echo "$1" >&2
+	exit 1
+}
+
+usage(){
+	die "Usage: $(basename "$0") {install|uninstall}\n\
+       $(basename "$0") user-install ECLIPSE_BASE_PATH"
+}
+
+[ "$1" ] || usage
+
+DEST_DIR="/opt/eclipse-adt-plugin"
+BEGIN_ADT_LINE="### BEGIN: ADT settings. Do not edit this lines ####"
+END_ADT_LINE="### END: ADT settings ####"
+REQ_URL="http://dl.google.com/android/ADT-22.0.5.zip"
+
+case "$1" in
+	install)
+		if aurex-cache get "$REQ_URL" ; then
+			EXEC_FILE="$(aurex-cache file "$REQ_URL")"
+			if [ "$EXEC_FILE" ] && [ -r "$EXEC_FILE" ] ; then
+				echo "Extracting files"
+				mkdir -p "$DEST_DIR"
+				unzip -o -d "$DEST_DIR" "$EXEC_FILE"
+			fi
+		fi
+		;;
+	uninstall)
+		rm -fr "$DEST_DIR"
+		;;
+	user-install)
+		# check previous run ...
+		[ ! -r "$HOME/.config/aurex/eclipse-adt.done" ] || exit 0
+		[ "$2" ] || usage
+		ECLIPSE_PATH="$2"
+		ECLIPSE_CMD="$ECLIPSE_PATH/eclipse/eclipse"
+		[ -x "$ECLIPSE_CMD" ] || die "Error installing eclipse ADT plugin: eclipse executable file ($ECLIPSE_CMD) not found!"
+		ECLIPSE_CDT="$ECLIPSE_PATH/cdt"
+		[ -d "$ECLIPSE_CDT" ] || die "Error installing eclipse ADT plugin: CDT p2 repository ($ECLIPSE_CDT) not found!"
+		rc=1
+		if android-sdk-installer user-install ; then
+			# Most of the magic code has been "stolen" from:
+			# http://stackoverflow.com/questions/7163970/how-do-you-automate-the-installation-of-eclipse-plugins-with-command-line
+			# Thanks a lot, samb (http://stackoverflow.com/users/446302/samb)
+			
+			# 1. first list all IU's found in the plugin repository, and generate the required "-installIU" string command parameter
+			IU_LIST="$($ECLIPSE_CMD -nosplash -application org.eclipse.equinox.p2.director -repository file://$DEST_DIR -l |sed -ne "/^.*=.*--[[:digit:]]\+/{s%=.*$%%;s%^%-installIU %;p}" |tr "\n" " ")"
+			# 2. install all IU's
+			if [ "$IU_LIST" ] ; then
+				rc=0
+				$ECLIPSE_CMD -nosplash -application org.eclipse.equinox.p2.director -repository file://$DEST_DIR,file://$ECLIPSE_CDT $IU_LIST || rc=2
+			fi
+		fi
+		if [ $rc -eq 0 ] ; then
+			mkdir -p "$HOME/.config/aurex/"
+			dpkg -s eclipse-adt-plugin |sed -ne "/^Version:/{s%^.*:[[:blank:]]*%%;p}" > "$HOME/.config/aurex/eclipse-adt.done"
+		else
+			die "Error installing eclipse ADT plugin"
+		fi
+		;;
+	*)
+		usage
+		;;
+esac
+
+exit 0

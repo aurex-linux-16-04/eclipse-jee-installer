@@ -1,0 +1,5 @@
+#!/bin/sh
+
+eclipse-adt-installer  uninstall
+#DEBHELPER#
+

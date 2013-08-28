@@ -12,6 +12,12 @@ Description: generic eclipse JEE metapackage
  This package will always depend on the aurex recommended version of
  the eclipse JEE
 
+Package: eclipse-adt-plugin
+Architecture: all
+Depends: ${misc:Depends}, aurex-cache, oracle-java7-installer, android-sdk-installer, eclipse-jee-installer | eclipse-jee
+Description: eclipse ADT plugin loader package for aurex
+ This package downloads and installs eclipse ADT plugin
+
 Package: eclipse-juno-installer
 Architecture: all
 Depends: ${misc:Depends}, eclipse-juno-sr2, eclipse-juno-cdt-installer
