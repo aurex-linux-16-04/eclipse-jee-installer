@@ -1,0 +1,5 @@
+#!/bin/sh
+
+eclipse-cdt-kepler install
+#DEBHELPER#
+
