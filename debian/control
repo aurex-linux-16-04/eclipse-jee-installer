@@ -31,7 +31,7 @@ Depends: ${misc:Depends}, aurex-cache, oracle-java7-installer
 Description: eclipse juno 4.2 loader package for aurex
  This package downloads and installs eclipse juno 4.2 SR2 JEE
 
-Package: eclipse-juno-cdt-installer
+Package: eclipse-juno-cdt
 Architecture: all
 Depends: ${misc:Depends}, aurex-cache, oracle-java7-installer, eclipse-juno-sr2-base
 Description: eclipse juno CDT loader package for aurex
@@ -51,7 +51,7 @@ Depends: ${misc:Depends}, aurex-cache, oracle-java7-installer
 Description: eclipse kepler 4.3 loader package for aurex
  This package downloads and installs eclipse juno kepler R JEE
 
-Package: eclipse-kepler-cdt-installer
+Package: eclipse-kepler-cdt
 Architecture: all
 Depends: ${misc:Depends}, aurex-cache, oracle-java7-installer, eclipse-kepler-base
 Description: eclipse juno CDT loader package for aurex
