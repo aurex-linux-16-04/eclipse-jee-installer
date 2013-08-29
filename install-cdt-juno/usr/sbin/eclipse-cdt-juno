@@ -36,7 +36,7 @@ case "$1" in
 			if [ "$EXEC_FILE" ] && [ -r "$EXEC_FILE" ] ; then
 				echo "Extracting files"
 				mkdir -p "$DEST_DIR"
-				unzip -o -d "$DEST_DIR"  "$EXEC_FILE"
+				unzip -q -o -d "$DEST_DIR"  "$EXEC_FILE"
 			fi
 		fi
 		;;
