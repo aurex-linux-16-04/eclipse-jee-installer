@@ -1,3 +1,9 @@
+eclipse-jee-installer (4.3+0aurex5) precise; urgency=low
+
+  * Binary package naming schema rationalization
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Thu, 29 Aug 2013 10:51:29 +0200
+
 eclipse-jee-installer (4.3+0aurex4) precise; urgency=low
 
   * Added user-unistall feature to eclipse-adt-installer
