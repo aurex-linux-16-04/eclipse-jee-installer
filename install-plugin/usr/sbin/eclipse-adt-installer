@@ -26,7 +26,7 @@ die(){
 
 usage(){
 	die "Usage: $(basename "$0") {install|uninstall}\n\
-       $(basename "$0") user-install ECLIPSE_BASE_PATH"
+       $(basename "$0") {user-install|user-unistall} ECLIPSE_BASE_PATH"
 }
 
 [ "$1" ] || usage
@@ -78,6 +78,26 @@ case "$1" in
 			dpkg -s eclipse-adt-plugin |sed -ne "/^Version:/{s%^.*:[[:blank:]]*%%;p}" > "$HOME/.config/aurex/eclipse-adt.done"
 		else
 			die "Error installing eclipse ADT plugin"
+		fi
+		;;
+	user-install)
+		# check previous run ...
+		[ -r "$HOME/.config/aurex/eclipse-adt.done" ] || exit 0
+		[ "$2" ] || usage
+		ECLIPSE_PATH="$2"
+		ECLIPSE_CMD="$ECLIPSE_PATH/eclipse/eclipse"
+		[ -x "$ECLIPSE_CMD" ] || die "Error uninstalling eclipse ADT plugin: eclipse executable file ($ECLIPSE_CMD) not found!"
+		rc=1
+		# 1. first list all IU's found in the plugin repository, and generate the required "-uninstallIU" string command parameter
+		IU_LIST="$($ECLIPSE_CMD -nosplash -application org.eclipse.equinox.p2.director -repository file://$DEST_DIR -l |sed -ne "/^.*=.*--[[:digit:]]\+/{s%=.*$%%;s%^%-installIU %;p}" |tr "\n" " ")"
+		# 2. Uninstall all IU's
+		if [ "$IU_LIST" ] ; then
+			rc=0
+			$ECLIPSE_CMD -nosplash -application org.eclipse.equinox.p2.director -repository file://$DEST_DIR $IU_LIST || rc=2
+		fi
+		rm -f "$HOME/.config/aurex/eclipse-adt.done"
+		if [ $rc -ne 0 ] ; then
+			die "Error uninstalling eclipse ADT plugin"
 		fi
 		;;
 	*)
