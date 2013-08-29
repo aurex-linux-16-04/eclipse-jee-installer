@@ -20,7 +20,7 @@ Description: eclipse ADT plugin loader package for aurex
 
 Package: eclipse-juno-installer
 Architecture: all
-Depends: ${misc:Depends}, eclipse-juno-sr2-base, eclipse-juno-cdt-installer
+Depends: ${misc:Depends}, eclipse-juno-sr2-base, eclipse-juno-cdt
 Provides: eclipse-jee
 Description: eclipse juno metapackage
  This package will always depend on the latest eclipse juno version
@@ -40,7 +40,7 @@ Description: eclipse juno CDT loader package for aurex
 
 Package: eclipse-kepler-installer
 Architecture: all
-Depends: ${misc:Depends}, eclipse-kepler-base, eclipse-kepler-cdt-installer
+Depends: ${misc:Depends}, eclipse-kepler-base, eclipse-kepler-cdt
 Provides: eclipse-jee
 Description: eclipse juno metapackage
  This package will always depend on the latest eclipse kepler version

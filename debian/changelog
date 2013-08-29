@@ -1,3 +1,9 @@
+eclipse-jee-installer (4.3+0aurex7) precise; urgency=low
+
+  * Fixed depends
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Thu, 29 Aug 2013 13:29:04 +0200
+
 eclipse-jee-installer (4.3+0aurex6) precise; urgency=low
 
   * Added missing install files for cdt packages
