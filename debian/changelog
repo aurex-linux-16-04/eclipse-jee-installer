@@ -1,3 +1,10 @@
+eclipse-jee-installer (4.3+0aurex9) precise; urgency=low
+
+  * Chaged generic metapackage (eclipse-jee-installer) to set
+    eclipse-kepler as default
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Thu, 05 Sep 2013 01:21:12 +0200
+
 eclipse-jee-installer (4.3+0aurex8) precise; urgency=low
 
   * Added postinst and prerm for CDT packages
