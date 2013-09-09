@@ -52,7 +52,7 @@ case "$1" in
 		;;
 	user-install)
 		# check previous run ...
-		[ ! -r "$HOME/.config/aurex/eclipse-adt.done" ] || exit 0
+		[ ! -r "$HOME/.config/aurex/eclipse-adt-2.done" ] || exit 0
 		[ "$2" ] || usage
 		ECLIPSE_PATH="$2"
 		ECLIPSE_CMD="$ECLIPSE_PATH/eclipse/eclipse"
@@ -75,14 +75,14 @@ case "$1" in
 		fi
 		if [ $rc -eq 0 ] ; then
 			mkdir -p "$HOME/.config/aurex/"
-			dpkg -s eclipse-adt-plugin |sed -ne "/^Version:/{s%^.*:[[:blank:]]*%%;p}" > "$HOME/.config/aurex/eclipse-adt.done"
+			dpkg -s eclipse-adt-plugin |sed -ne "/^Version:/{s%^.*:[[:blank:]]*%%;p}" > "$HOME/.config/aurex/eclipse-adt-2.done"
 		else
 			die "Error installing eclipse ADT plugin"
 		fi
 		;;
-	user-install)
+	user-uninstall)
 		# check previous run ...
-		[ -r "$HOME/.config/aurex/eclipse-adt.done" ] || exit 0
+		[ -r "$HOME/.config/aurex/eclipse-adt-2.done" ] || exit 0
 		[ "$2" ] || usage
 		ECLIPSE_PATH="$2"
 		ECLIPSE_CMD="$ECLIPSE_PATH/eclipse/eclipse"
@@ -95,7 +95,7 @@ case "$1" in
 			rc=0
 			$ECLIPSE_CMD -nosplash -application org.eclipse.equinox.p2.director -repository file://$DEST_DIR $IU_LIST || rc=2
 		fi
-		rm -f "$HOME/.config/aurex/eclipse-adt.done"
+		rm -f "$HOME/.config/aurex/eclipse-adt-2.done"
 		if [ $rc -ne 0 ] ; then
 			die "Error uninstalling eclipse ADT plugin"
 		fi

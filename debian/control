@@ -27,7 +27,7 @@ Description: eclipse juno metapackage
 
 Package: eclipse-juno-sr2-base
 Architecture: all
-Depends: ${misc:Depends}, aurex-cache, oracle-java7-installer
+Depends: ${misc:Depends}, aurex-cache, oracle-java7-installer, yad
 Description: eclipse juno 4.2 loader package for aurex
  This package downloads and installs eclipse juno 4.2 SR2 JEE
 
@@ -47,7 +47,7 @@ Description: eclipse juno metapackage
 
 Package: eclipse-kepler-base
 Architecture: all
-Depends: ${misc:Depends}, aurex-cache, oracle-java7-installer
+Depends: ${misc:Depends}, aurex-cache, oracle-java7-installer, yad
 Description: eclipse kepler 4.3 loader package for aurex
  This package downloads and installs eclipse juno kepler R JEE
 

@@ -1,3 +1,9 @@
+eclipse-jee-installer (4.3+0aurex10) precise; urgency=low
+
+  * Use yad to get some feedback when installing ADT plugin
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Mon, 09 Sep 2013 17:03:43 +0200
+
 eclipse-jee-installer (4.3+0aurex9) precise; urgency=low
 
   * Chaged generic metapackage (eclipse-jee-installer) to set

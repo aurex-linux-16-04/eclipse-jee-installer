@@ -23,6 +23,6 @@ DEST_DIR="/opt/eclipse-juno-sr2"
 # test if ADT plugin is installed
 ECLIPSE_ADT="$(which eclipse-adt-installer)"
 if [ "$ECLIPSE_ADT" ] && [ -x "$ECLIPSE_ADT" ] ; then
-	$ECLIPSE_ADT user-install "$DEST_DIR" || true
+	$ECLIPSE_ADT user-install "$DEST_DIR" |yad --progress-text="Android Plugin" --progress --auto-kill --auto-close --pulsate --percentage=25  --title=Install || true
 fi
 exec "$DEST_DIR/eclipse/eclipse" "$@"
