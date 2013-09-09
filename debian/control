@@ -7,14 +7,14 @@ Standards-Version: 3.8.4
 
 Package: eclipse-jee-installer
 Architecture: all
-Depends: ${misc:Depends}, eclipse-juno-installer
+Depends: ${misc:Depends}, eclipse-kepler-installer
 Description: generic eclipse JEE metapackage
  This package will always depend on the aurex recommended version of
  the eclipse JEE
 
 Package: eclipse-adt-plugin
 Architecture: all
-Depends: ${misc:Depends}, aurex-cache, oracle-java7-installer, android-sdk-installer, eclipse-jee-installer | eclipse-jee
+Depends: ${misc:Depends}, aurex-cache, oracle-java7-installer, unzip, android-sdk-installer, eclipse-jee-installer | eclipse-jee
 Description: eclipse ADT plugin loader package for aurex
  This package downloads and installs eclipse ADT plugin
 
@@ -33,7 +33,7 @@ Description: eclipse juno 4.2 loader package for aurex
 
 Package: eclipse-juno-cdt
 Architecture: all
-Depends: ${misc:Depends}, aurex-cache, oracle-java7-installer, eclipse-juno-sr2-base
+Depends: ${misc:Depends}, aurex-cache, oracle-java7-installer, unzip, eclipse-juno-sr2-base
 Description: eclipse juno CDT loader package for aurex
  This package downloads and installs CDT (C/C++ Development Tooling)
  for eclipse juno
@@ -53,7 +53,7 @@ Description: eclipse kepler 4.3 loader package for aurex
 
 Package: eclipse-kepler-cdt
 Architecture: all
-Depends: ${misc:Depends}, aurex-cache, oracle-java7-installer, eclipse-kepler-base
+Depends: ${misc:Depends}, aurex-cache, oracle-java7-installer, unzip, eclipse-kepler-base
 Description: eclipse juno CDT loader package for aurex
  This package downloads and installs CDT (C/C++ Development Tooling)
  for eclipse kepler
