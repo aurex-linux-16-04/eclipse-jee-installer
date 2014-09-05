@@ -7,7 +7,7 @@ Standards-Version: 3.8.4
 
 Package: eclipse-jee-installer
 Architecture: all
-Depends: ${misc:Depends}, eclipse-kepler-installer
+Depends: ${misc:Depends}, eclipse-luna-installer
 Description: generic eclipse JEE metapackage
  This package will always depend on the aurex recommended version of
  the eclipse JEE
@@ -57,3 +57,23 @@ Depends: ${misc:Depends}, aurex-cache, oracle-java7-installer, unzip, eclipse-ke
 Description: eclipse juno CDT loader package for aurex
  This package downloads and installs CDT (C/C++ Development Tooling)
  for eclipse kepler
+
+Package: eclipse-luna-installer
+Architecture: all
+Depends: ${misc:Depends}, eclipse-luna-base, eclipse-luna-cdt
+Provides: eclipse-jee
+Description: eclipse luna metapackage
+ This package will always depend on the latest eclipse luna version
+
+Package: eclipse-luna-base
+Architecture: all
+Depends: ${misc:Depends}, aurex-cache, oracle-java8-installer, yad
+Description: eclipse luna 4.4 loader package for aurex
+ This package downloads and installs eclipse juno luna R JEE
+
+Package: eclipse-luna-cdt
+Architecture: all
+Depends: ${misc:Depends}, aurex-cache, oracle-java8-installer, unzip, eclipse-luna-base
+Description: eclipse luna CDT loader package for aurex
+ This package downloads and installs CDT (C/C++ Development Tooling)
+ for eclipse luna

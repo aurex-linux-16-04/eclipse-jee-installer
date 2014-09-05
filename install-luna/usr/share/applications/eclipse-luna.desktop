@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Eclipse Luna
+Type=Application
+Exec=eclipse-luna
+Terminal=false
+Icon=eclipse
+Comment=Eclipse IDE for Java EE Developers
+NoDisplay=false
+Categories=Application;Development;Java;IDE
