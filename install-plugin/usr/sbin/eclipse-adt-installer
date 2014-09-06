@@ -1,7 +1,7 @@
 #!/bin/sh
 # -------
 # File:        eclipse-adt-installer
-# Description: Download and install eclpise ADT plugin
+# Description: Download eclipse ADT plugin
 # Author:      Luis Antonio Garcia Gisbert <luisgg@gmail.com> 
 # 
 # This program is free software; you can redistribute it and/or modify
@@ -34,7 +34,7 @@ usage(){
 DEST_DIR="/opt/eclipse-adt-plugin"
 BEGIN_ADT_LINE="### BEGIN: ADT settings. Do not edit this lines ####"
 END_ADT_LINE="### END: ADT settings ####"
-REQ_URL="http://dl.google.com/android/ADT-22.0.5.zip"
+REQ_URL="https://dl.google.com/android/ADT-23.0.3.zip"
 
 case "$1" in
 	install)
@@ -43,7 +43,9 @@ case "$1" in
 			if [ "$EXEC_FILE" ] && [ -r "$EXEC_FILE" ] ; then
 				echo "Extracting files"
 				mkdir -p "$DEST_DIR"
-				unzip -q -o -d "$DEST_DIR" "$EXEC_FILE"
+				#unzip -q -o -d "$DEST_DIR" "$EXEC_FILE"
+				#chmod -R +r "$DEST_DIR"
+				cp "$EXEC_FILE" "$DEST_DIR/"
 			fi
 		fi
 		;;

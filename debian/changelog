@@ -3,6 +3,7 @@ eclipse-jee-installer (4.4+0aurex1) trusty; urgency=medium
   * Rebuild for aurex 14.04 trusty
   * Added eclipse-luna packages
   * Metapackage updated to set eclipse-luna as default
+  * Removed autoinstallation of ADT plugin
 
  -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 05 Sep 2014 21:11:14 +0200
 
