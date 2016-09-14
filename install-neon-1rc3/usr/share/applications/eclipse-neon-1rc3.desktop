@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Eclipse Neon 1rc3
+Type=Application
+Exec=eclipse-neon-1rc3
+Terminal=false
+Icon=eclipse
+Comment=Eclipse IDE for Java EE Developers
+NoDisplay=false
+Categories=Application;Development;Java;IDE

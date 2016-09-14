@@ -1,0 +1,5 @@
+#!/bin/sh
+
+eclipse-neon-1rc3-installer uninstall
+#DEBHELPER#
+

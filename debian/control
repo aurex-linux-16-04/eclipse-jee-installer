@@ -77,3 +77,16 @@ Depends: ${misc:Depends}, aurex-cache, oracle-java8-installer, unzip, eclipse-lu
 Description: eclipse luna CDT loader package for aurex
  This package downloads and installs CDT (C/C++ Development Tooling)
  for eclipse luna
+
+Package: eclipse-neon-1rc3-base
+Architecture: all
+Depends: ${misc:Depends}, aurex-cache, oracle-java8-installer, yad
+Description: eclipse neon 1.rc3 loader package for aurex
+ This package downloads and installs eclipse juno luna R JEE
+
+Package: eclipse-neon-1rc3-cdt
+Architecture: all
+Depends: ${misc:Depends}, aurex-cache, oracle-java8-installer, unzip, eclipse-neon-1rc3-base
+Description: eclipse neon 1.rc3 CDT loader package for aurex
+ This package downloads and installs CDT (C/C++ Development Tooling)
+ for eclipse neon 1.rc3

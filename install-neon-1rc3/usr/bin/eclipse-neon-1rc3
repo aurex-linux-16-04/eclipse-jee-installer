@@ -1,0 +1,30 @@
+#!/bin/sh
+# -------
+# File:        eclipse-neon-1rc3
+# Description: simple launcher for eclipse
+# Author:      Luis Antonio Garcia Gisbert <luisgg@gmail.com> 
+# 
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along 
+# with this program; if not, write to the Free Software Foundation, Inc., 
+# 51 Franklin St, Fifth Floor, Boston MA 02110-1301 USA
+# --------
+
+DEST_DIR="/opt/eclipse-neon-1rc3"
+# test if ADT plugin is installed
+#ECLIPSE_ADT="$(which eclipse-adt-installer)"
+#if [ "$ECLIPSE_ADT" ] && [ -x "$ECLIPSE_ADT" ] ; then
+#        $ECLIPSE_ADT user-install "$DEST_DIR" |yad --progress-text="Android Plugin" --progress --auto-kill --auto-close --pulsate --percentage=25  --title=Install || true
+#fi
+# force android sdk personal user installation if available
+[ ! -x /usr/sbin/android-sdk-installer ] || /usr/sbin/android-sdk-installer user-install
+exec "$DEST_DIR/eclipse/eclipse" "$@"

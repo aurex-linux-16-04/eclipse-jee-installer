@@ -34,7 +34,7 @@ usage(){
 DEST_DIR="/opt/eclipse-adt-plugin"
 BEGIN_ADT_LINE="### BEGIN: ADT settings. Do not edit this lines ####"
 END_ADT_LINE="### END: ADT settings ####"
-REQ_URL="https://dl.google.com/android/ADT-23.0.3.zip"
+REQ_URL="https://dl.google.com/android/ADT-23.0.7.zip"
 
 case "$1" in
 	install)
