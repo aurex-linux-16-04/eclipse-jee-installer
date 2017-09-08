@@ -1,3 +1,9 @@
+eclipse-jee-installer (4.6+0aurex2) xenial; urgency=medium
+
+  * Fixed android-sdk depends
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Fri, 08 Sep 2017 18:52:05 +0200
+
 eclipse-jee-installer (4.6+0aurex1) xenial; urgency=medium
 
   * New upstream version

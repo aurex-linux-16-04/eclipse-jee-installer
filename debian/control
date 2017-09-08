@@ -14,7 +14,7 @@ Description: generic eclipse JEE metapackage
 
 Package: eclipse-adt-plugin
 Architecture: all
-Depends: ${misc:Depends}, aurex-cache, oracle-java8-installer, unzip, android-sdk-installer, eclipse-jee-installer | eclipse-jee
+Depends: ${misc:Depends}, aurex-cache, oracle-java8-installer, unzip, android-sdk|android-sdk-installer, eclipse-jee-installer | eclipse-jee
 Description: eclipse ADT plugin loader package for aurex
  This package downloads and installs eclipse ADT plugin
 
