@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Eclipse Photon Installer
+Type=Application
+Exec=eclipse-photon-user-installer
+Terminal=false
+Icon=eclipse
+Comment=Eclipse IDE for Java EE Developers
+NoDisplay=false
+Categories=Application;Development;Java;IDE

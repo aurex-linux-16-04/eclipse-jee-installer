@@ -7,9 +7,9 @@ Standards-Version: 3.8.4
 
 Package: eclipse-jee-installer
 Architecture: all
-Depends: ${misc:Depends}, eclipse-neon-installer
+Depends: ${misc:Depends}, eclipse-photon-installer
 Description: generic eclipse JEE metapackage
- This package will always depend on the aurex recommended version of
+ This package will always depend on the soulmate/aurex recommended version of
  the eclipse JEE
 
 Package: eclipse-adt-plugin
@@ -97,3 +97,18 @@ Depends: ${misc:Depends}, aurex-cache, oracle-java8-installer|oracle-java9-insta
 Description: eclipse neon 1.rc3 CDT loader package for aurex
  This package downloads and installs CDT (C/C++ Development Tooling)
  for eclipse neon 1.rc3
+
+Package: eclipse-photon-installer
+Architecture: all
+Depends: ${misc:Depends}, eclipse-photon-base
+Provides: eclipse-jee
+Description: eclipse photon metapackage
+ This package will always depend on the latest eclipse photon version
+
+Package: eclipse-photon-base
+Architecture: all
+Depends: ${misc:Depends}, aurex-cache, oracle-java10-installer|oracle-java8-installer, yad
+Description: eclipse photon loader package for aurex
+ This package downloads and installs eclipse photon JEE
+
+
