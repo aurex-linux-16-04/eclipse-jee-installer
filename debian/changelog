@@ -1,3 +1,9 @@
+eclipse-jee-installer (4.7+0aurex5) xenial; urgency=medium
+
+  * Fixed a syntax typo in eclipse-photon-user-installer
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Sat, 15 Sep 2018 12:42:32 +0200
+
 eclipse-jee-installer (4.7+0aurex1) xenial; urgency=medium
 
   * New upstream version

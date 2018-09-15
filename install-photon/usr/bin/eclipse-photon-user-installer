@@ -25,9 +25,9 @@ DEST_DIR="/opt/eclipse-photon-installer/eclipse-installer"
 #if [ "$ECLIPSE_ADT" ] && [ -x "$ECLIPSE_ADT" ] ; then
 #        $ECLIPSE_ADT user-install "$DEST_DIR" |yad --progress-text="Android Plugin" --progress --auto-kill --auto-close --pulsate --percentage=25  --title=Install || true
 #fi
-if [ -d exec "$DEST_DIR" ] ; then
+if [ -d "$DEST_DIR" ] ; then
 	# force android sdk personal user installation if available
 	#[ ! -x /usr/sbin/android-sdk-installer ] || /usr/sbin/android-sdk-installer user-install
 	cd "$DEST_DIR"
-	./eclipse-inst
+	exec ./eclipse-inst
 fi
